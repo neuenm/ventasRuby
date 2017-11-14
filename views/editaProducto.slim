@@ -1,0 +1,21 @@
+div class="row container"
+  h2 Edicion de Producto
+  form action="/producto/nuevo" method="post"
+      div class="row"
+
+        select name="categoria"
+          option value="Panes" Panes
+          option value="Secos" Secos
+          option value="Bolleria" Bolleria
+        label Tipo de producto
+
+
+        div class="input-field col s12"
+          input placeholder="Placeholder" id="nombre" type="text" class="validate" name="nombre" value="#{@producto.nombre}"
+          label for="nombre"Nombre
+
+        div class="input-field col s12"
+          input placeholder="Placeholder" id="precio" type="number" class="validate" name="precio"  value="#{@producto.precio}"
+          label for="precio"Precio
+
+      button class="btn waves-effect waves-light" type="submit" name="action" Guardar

@@ -1,0 +1,81 @@
+  div class="container"
+    h2 Listado de Productos
+    ul id="tabs-swipe-demo" class="tabs tabs-fixed-width"
+      li class="tab col s3 lg3" 
+        a href="#test-swipe-1" Panes
+      li class="tab col s3 lg3" 
+        a href="#test-swipe-2" Secos
+      li class="tab col s3 lg3" 
+        a href="#test-swipe-3" Bolleria
+   
+    - unless @productos.empty?
+      div id="test-swipe-1" class="col s12" 
+        table
+          thead
+            tr
+              th Nombre
+              th Precio
+              th Editar
+              th Eliminar
+          tbody
+            - @productos.reverse_each do |producto|
+                -if producto.categoria=="Panes"
+                  tr
+                    td =producto.nombre
+                    td =producto.precio
+                    td  
+                     a href="/producto/editar/#{producto.id}" class="btn-floating btn-large waves-effect waves-light red right-align"
+                       i class="material-icons" edit
+                    td  
+                     a href="/producto/eliminar/#{producto.id}" class="btn-floating btn-large waves-effect waves-light red right-align"
+                       i class="material-icons" delete
+
+      div id="test-swipe-2" class="col s12" 
+        table
+          thead
+            tr
+              th Nombre
+              th Precio
+              th Editar
+              th Eliminar
+
+
+          tbody
+            - @productos.reverse_each do |producto|
+                -if producto.categoria=="Secos"
+                  tr
+                    td =producto.nombre
+                    td =producto.precio
+                    td  
+                      a href="/producto/editar/#{producto.id}" class="btn-floating btn-large waves-effect waves-light red right-align"
+                       i class="material-icons" edit
+                    td  
+                      a href="/producto/eliminar/#{producto.id}" class="btn-floating btn-large waves-effect waves-light red right-align"
+                       i class="material-icons" delete
+      div id="test-swipe-3" class="col s12" 
+        table
+          thead
+            tr
+              th Nombre
+              th Precio
+              th Editar
+              th Eliminar
+
+          tbody
+            - @productos.reverse_each do |producto|
+                -if producto.categoria=="Bolleria"
+                  tr
+                    td =producto.nombre
+                    td =producto.precio
+                    td  
+                     a href="/producto/editar/#{producto.id}" class="btn-floating btn-large waves-effect waves-light red right-align"
+                       i class="material-icons" edit     
+                    td  
+                     a href="/producto/eliminar/#{producto.id}" class="btn-floating btn-large waves-effect waves-light red right-align"
+                       i class="material-icons" delete   
+    - else
+      p
+       | No items found.  Please add some inventory.
+         Thank you!
+    a href="/producto/nuevo" class="btn-floating btn-large waves-effect waves-light red right-align"
+      i class="material-icons" add

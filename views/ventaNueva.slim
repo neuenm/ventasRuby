@@ -1,11 +1,12 @@
 div class="container"
+  h2 Nueva Venta
   form action="/nuevo" method="post"
     input type="hidden"  name="total" id="totalId" value=""
 
     div class="input-field col s12"
       h5 Cliente 
       select  name="cliente"
-        option value="Gabriela" Gringo
+        option value="Gringo" Gringo
         option value="Gabriela" Gabriela
         option value="Ribolzi" Ribolzi
         option value="Pata Negra" Pata Negra
@@ -14,160 +15,44 @@ div class="container"
     h5 Productos
     ul id="tabs-swipe-demo" class="tabs tabs-fixed-width"
       li class="tab col s3 lg3" 
-        a class="active" href="#test-swipe-1" Panes
+        a href="#test-swipe-1" Panes
       li class="tab col s3 lg3" 
         a href="#test-swipe-2" Secos
       li class="tab col s3 lg3" 
         a href="#test-swipe-3" Bolleria
-    div id="test-swipe-1" class="col s12" 
-      h5 Panes
-      <hr />
-
-      h6 Lactal
-      input type="hidden" name="nombre[]" value="lactal" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="20" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Lactal Familiar
-      input type="hidden" name="nombre[]" value="lactalFamiliar" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="30" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Integral
-      input type="hidden" name="nombre[]" value="integral" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="25" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Integral Familiar
-      input type="hidden" name="nombre[]" value="integralFamiliar" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="30" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Lacteado con semillas
-      input type="hidden" name="nombre[]" value="Lacteado con Semillas" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="50" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Multicereal
-      input type="hidden" name="nombre[]" value="Multicereal" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="40" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-
-      h6 Trisalvado light
-      input type="hidden" name="nombre[]" value="Trisalvado Light" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="60" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-    
-    div id="test-swipe-2" class="col s12" 
-
-      h5 Secos
-      <hr />
-
-      h6 Tostadas Light con Gluten
-      input type="hidden" name="nombre[]" value="Tostadas Light con Gluten" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="20" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Tostadas Light sin Sal
-      input type="hidden" name="nombre[]" value="Tostadas Light sin Sal" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-
-      h6 Tostadas Light Saladas
-      input type="hidden" name="nombre[]" value="Tostadas Light Saladas" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Tostadas Light Dulces
-      input type="hidden" name="nombre[]" value="Tostadas Light Dulces" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Grisines Clasicos
-      input type="hidden" name="nombre[]" value="Grisines Clasicos" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Grisines Blancos
-      input type="hidden" name="nombre[]" value="Grisines Blancos" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Grisines COn Salvado
-      input type="hidden" name="nombre[]" value="Grisines COn Salvado" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Grisines Multicereal
-      input type="hidden" name="nombre[]" value="Grisines Multicereal" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Grisines Trisalvado
-      input type="hidden" name="nombre[]" value="Grisines Trisalvado" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-
-    div id="test-swipe-3" class="col s12"
-      h5 Bolleria
-      <hr />
-
-      h6 Pan para panchos
-      input type="hidden" name="nombre[]" value="Pan para panchos" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-
-      h6 Pan para Superpanchos
-      input type="hidden" name="nombre[]" value="Pan para Superpanchos" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-    
-      h6 Pan para Haburguesas
-      input type="hidden" name="nombre[]" value="Pan para Haburguesas" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Pan para Hamburguesas con Sesamo
-      input type="hidden" name="nombre[]" value="Pan para Hamburguesas con Sesamo" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Pan Rallado
-      input type="hidden" name="nombre[]" value="Pan Rallado" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
-      h6 Prepiza
-      input type="hidden" name="nombre[]" value="Prepiza" <!-- Nombre oculto del producto -->
-      p class="range-field"                              
-        input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
-      input class="precio" type="number" name="precio[]" value="23" <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
-
+   
+    - unless @Productos.empty?
+      div id="test-swipe-1" class="col s12" 
+        - @Productos.each do |producto|
+            -if producto.categoria=="Panes"
+              <hr />
+              h6 =producto.nombre
+              input type="hidden" name="nombre[]" value=producto.nombre <!-- Nombre oculto del producto -->
+              p class="range-field"                              
+                input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
+              input class="precio" type="number" name="precio[]" value=producto.precio <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
+      div id="test-swipe-2" class="col s12" 
+        - @Productos.each do |producto|
+            -if producto.categoria=="Secos"
+              <hr />
+              h6 =producto.nombre
+              input type="hidden" name="nombre[]" value=producto.nombre <!-- Nombre oculto del producto -->
+              p class="range-field"                              
+                input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
+              input class="precio" type="number" name="precio[]" value=producto.precio <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
+      div id="test-swipe-3" class="col s12" 
+        - @Productos.each do |producto|
+            -if producto.categoria=="Bolleria"
+              <hr />
+              h6 =producto.nombre
+              input type="hidden" name="nombre[]" value=producto.nombre <!-- Nombre oculto del producto -->
+              p class="range-field"                              
+                input class="cantidad" name="cantidad[]" type="range"  min="0" max="100" value="0" <!-- Range para fijar la cantidad de lproducto -->
+              input class="precio" type="number" name="precio[]" value=producto.precio <!-- Coso con numero para poder cambiar el precio del producto, trae un preccio por defecto pero se puede cambiar -->
+    - else
+      p
+       | No items found.  Please add some inventory.
+         Thank you!
 
 
 
@@ -184,9 +69,6 @@ div class="container"
 
   <hr />
 
-
-  a href="/listado" class="btn-floating btn-large waves-effect waves-light red right-align"
-    i class="material-icons" list
 
 javascript:
 

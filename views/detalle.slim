@@ -1,3 +1,4 @@
+h2 Detalle de venta
 table
     thead
       tr
@@ -6,15 +7,12 @@ table
           th Catidad
 
     tbody
-    if @prdouctos.empty?
-      - @productos.each do |producto|
+      -@productos.each do |producto|
         - if producto.cantidad>0
-        	tr
-    			td = producto.nombre
-    			td = producto.precio
-    			td = producto.cantidad
-    else
-      P NO HAY VENTAS REGISTRADAS       
+          tr
+          td = producto.nombre
+          td = producto.precio
+          td = producto.cantidad
 
     h3 Total
     h3 =@total

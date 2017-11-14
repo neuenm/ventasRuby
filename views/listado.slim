@@ -1,38 +1,48 @@
-table
-    thead
-      tr
-          th Cliente
-          th Fecha
-          th Ganancia
-
-    tbody
-    - @listado.reverse_each do |venta|
-          tr
-            td =venta.cliente
-            td =venta.fecha
-            td =venta.total
-            td 	
-            	a href="/detalle/#{venta.id}" class="waves-effect waves-light btn" Detalle
+div class="container"
+  h2 Listado de ventas
+  table
+      thead
+        tr
+            th Cliente
+            th Fecha
+            th Ganancia
+            th Detalle
 
 
-h2 Filtros
-a href="/verhoy" class="waves-effect waves-light btn" Ver hoy 
-br
-br
+      tbody
+      - @listado.reverse_each do |venta|
+            tr
+              td =venta.cliente
+              td =venta.fecha
+              td =venta.total
+              td 
+              	a href="/detalle/#{venta.id}" class="waves-effect waves-light btn" Detalle
+
+  <hr />
+
+  h2 Filtros
+  <hr />
+  h4 Por Fecha
+  form method="POST" action="/fecha" 
+   label form="fecha"
+   input name="fecha" type="date"
+   input id="submit" type="submit" value="Ver" class="waves-effect waves-light btn"
+  <hr />
+  h4 Por Cliente
+  form method="POST" action="/cliente" 
+    div class="input-field col s12"
+      select  name="cliente"
+        option value="Gabriela" Gringo
+        option value="Gabriela" Gabriela
+        option value="Ribolzi" Ribolzi
+        option value="Pata Negra" Pata Negra
+        option value="Mario" Mario
+    input id="submit" type="submit" value="Ver" class="waves-effect waves-light btn"
 
 
-form method="POST" action="/fecha" 
- label form="fecha"
- input name="fecha" type="date"
- input id="submit" type="submit" value="Ver fecha" class="waves-effect waves-light btn"
+  <hr />
 
- br
- br
- a href="/listado" class="waves-effect waves-light btn" Ver todo
+  a href="/listado" class="waves-effect waves-light btn " Ver todo
 
-
-
-a href="/nuevo" class="btn-floating btn-large waves-effect waves-light red right-align"
-	i class="material-icons" add
 
 
