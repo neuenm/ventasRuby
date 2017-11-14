@@ -1,0 +1,21 @@
+table
+    thead
+      tr
+          th Producto
+          th Precio
+          th Catidad
+
+    tbody
+    if @prdouctos.empty?
+      - @productos.each do |producto|
+        - if producto.cantidad>0
+        	tr
+    			td = producto.nombre
+    			td = producto.precio
+    			td = producto.cantidad
+    else
+      P NO HAY VENTAS REGISTRADAS       
+
+    h3 Total
+    h3 =@total
+a href="/listado" class="waves-effect waves-light btn" Ver todo

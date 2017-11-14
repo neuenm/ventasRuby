@@ -1,0 +1,26 @@
+html
+  head
+    title Ventas
+    link rel="stylesheet" href="/css/materialize.min.css" 
+    link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" 
+    script src="/js/jquery-3.2.1.js" 
+    script src="/js/materialize.js" 
+
+
+  body class="grey lighten-1"
+   nav class="black"
+    div class="nav-wrapper"
+      a href="/listado" class="brand-logo"Sistema de ventas
+
+
+  == yield
+  
+
+
+
+javascript:
+  $(document).ready(function(){
+    $('select').material_select();
+    $('ul.tabs').tabs();
+  });
+
