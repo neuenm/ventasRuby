@@ -9,16 +9,15 @@ DataMapper.setup(:default, 'sqlite:db/development.db')
 # que se hace en la base de datos
 DataMapper::Logger.new($stdout, :debug)
 	
-
 class Venta
 	include DataMapper::Resource
 	property :id ,Serial
-    property :cliente,  String
     property :fecha , Date
     property :total, Integer
-
+    property :cliente, String
     has n, :productos , :through => Resource
 end
+
 
 class Producto
 	include DataMapper::Resource
@@ -30,6 +29,19 @@ class Producto
 
 	has n, :ventas , :through => Resource
 end
+
+
+class Cliente
+	include DataMapper::Resource
+	property :id, Serial
+	property :nombre, String
+	property :local, String
+	property :direccion, String
+end
+
+
+
+Cliente.auto_upgrade!
 Venta.auto_upgrade!
 Producto.auto_upgrade!
 
@@ -42,7 +54,8 @@ end
 
 get "/nuevo" do
 	@Productos= Producto.all();
-	slim :ventaNueva
+	@Clientes = Cliente.all();
+	slim :ventaNueva;
 end
 
 
@@ -55,25 +68,12 @@ post "/nuevo" do
 		venta.productos << producto
 		i += 1
 	end
-
-	p venta.productos[0].nombre
-	p venta
-
 	if venta.save
 		redirect "/listado"
 	else
-		p alfo salio0 mal
+		p algo salio mal
 	end
 end
-
-
-
-
-
-
-
-
-
 
 
 
@@ -86,18 +86,21 @@ end
 post "/fecha" do
 	@fecha=params["fecha"]
 	@listado=Venta.all(:fecha=>@fecha)
+	@clientes=Cliente.all()
 	slim  :listado
 end
 
 
 post "/cliente" do
 	@cliente=params["cliente"]
+	@clientes= Cliente.all();
 	@listado=Venta.all(:cliente=>@cliente)
 	slim  :listado
 end
 
 get "/listado" do
 	@listado=Venta.all()
+	@clientes=Cliente.all()
 	slim :listado
 end
 
@@ -134,16 +137,62 @@ end
 
 
 
-
 get "/producto/editar/:id" do
-	@producto=Producto.get(params["id"])
+	@producto=Producto.get(params['id'])
 	slim :editaProducto
 end
 
+post "/producto/editar/:id" do
+	@producto=Producto.get(params["id"])
+	@producto.update(:nombre=>params[:nombre], :precio=>params[:precio], :cantidad=>0, :categoria=>params[:categoria]);
+	@productos= Producto.all();
+	slim :listadoProductos
+end
 
+
+
+get "/cliente/editar/:id" do
+	@cliente=Cliente.get(params["id"])
+	slim :editaCliente
+end
+
+post "/cliente/editar/:id" do
+	@cliente=Cliente.get(params["id"])
+	@cliente.update(:nombre=>params[:nombre], :local=>params[:local],:direccion=>params[:direccion]);
+	@clientes=Cliente.all();
+	slim :listadoClientes
+end
 get "/producto/eliminar/:id" do
 	@producto=Producto.get(params["id"])
 	@producto.destroy
 	@productos= Producto.all();
 	slim :listadoProductos	
+end
+
+
+get "/cliente/eliminar/:id" do
+	@cliente=Cliente.get(params["id"])
+	@cliente.destroy
+	@clientes= Cliente.all();
+	slim :listadoClientes	
+end
+
+
+get "/nuevo/cliente" do
+	slim :nuevoCliente
+end
+
+
+post "/nuevo/cliente" do
+	cliente = Cliente.new(:nombre=>params[:nombre], :local=>params[:local],:direccion=>params[:direccion]);
+	if cliente.save
+		redirect "/listado/clientes"
+	else
+		p "alfo salio mal"
+	end
+end
+
+get "/listado/clientes" do
+	@clientes= Cliente.all();
+	slim :listadoClientes
 end

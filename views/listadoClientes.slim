@@ -1,0 +1,28 @@
+div class="container"
+  - unless @clientes.empty?
+          table
+            thead
+              tr
+                th Nombre
+                th Local
+                th Direccion
+                th Eliminar
+            tbody
+              - @clientes.reverse_each do |cliente|
+                    tr
+                      td =cliente.nombre
+                      td =cliente.local
+                      td =cliente.direccion
+
+                      td  
+                       a href="/cliente/editar/#{cliente.id}" class="btn-floating btn-large waves-effect waves-light red right-align"
+                         i class="material-icons" edit
+                      td  
+                       a href="/cliente/eliminar/#{cliente.id}" class="btn-floating btn-large waves-effect waves-light red right-align"
+                         i class="material-icons" delete
+
+  - else
+        p
+          | No items found.  Please add some inventory.
+  a href="/nuevo/cliente" class="btn-floating btn-large waves-effect waves-light red right-align"
+    i class="material-icons" add

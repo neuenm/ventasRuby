@@ -6,11 +6,8 @@ div class="container"
     div class="input-field col s12"
       h5 Cliente 
       select  name="cliente"
-        option value="Gringo" Gringo
-        option value="Gabriela" Gabriela
-        option value="Ribolzi" Ribolzi
-        option value="Pata Negra" Pata Negra
-        option value="Mario" Mario
+        - @Clientes.each do |cliente|
+            option value=cliente.nombre =cliente.nombre
 
     h5 Productos
     ul id="tabs-swipe-demo" class="tabs tabs-fixed-width"

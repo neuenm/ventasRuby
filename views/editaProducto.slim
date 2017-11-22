@@ -1,8 +1,7 @@
 div class="row container"
   h2 Edicion de Producto
-  form action="/producto/nuevo" method="post"
+  form action="/producto/editar/#{@producto.id}" method="post"
       div class="row"
-
         select name="categoria"
           option value="Panes" Panes
           option value="Secos" Secos
