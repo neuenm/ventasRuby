@@ -18,7 +18,6 @@ class Venta
     has n, :productos , :through => Resource
 end
 
-
 class Producto
 	include DataMapper::Resource
 	property :id ,Serial
@@ -26,7 +25,6 @@ class Producto
 	property :precio , String
 	property :cantidad, Integer
 	property :categoria, String
-
 	has n, :ventas , :through => Resource
 end
 
@@ -44,7 +42,6 @@ end
 Cliente.auto_upgrade!
 Venta.auto_upgrade!
 Producto.auto_upgrade!
-
 /DataMapper.auto_migrate!/
 /DataMapper.auto_upgrade!/
 
@@ -53,6 +50,8 @@ get "/" do
 end
 
 get "/nuevo" do
+	p "Producto.all.length"
+	p Producto.count
 	@Productos= Producto.all();
 	@Clientes = Cliente.all();
 	slim :ventaNueva;
@@ -64,7 +63,8 @@ post "/nuevo" do
 	j=params[:nombre].length
 	venta = Venta.new(:cliente=>params[:cliente], :fecha=>DateTime.now.to_date, :total=>params[:total])
 	while i<j
-		producto = Producto.new(:nombre=>params[:nombre][i], :precio=>params[:precio][i], :cantidad=>params[:cantidad][i], :categoria=>params[:categoria])
+		producto = Producto.first(:nombre=>params[:nombre][i])
+		producto.cantidad = params[:cantidad][i]
 		venta.productos << producto
 		i += 1
 	end
@@ -127,7 +127,7 @@ end
 
 
 post "/producto/nuevo" do 
-	producto = Producto.new(:nombre=>params[:nombre], :precio=>params[:precio], :cantidad=>0, :categoria=>params[:categoria]);
+	producto = Producto.first_or_create({:nombre=>params[:nombre]}, {:precio=>params[:precio], :cantidad=>0, :categoria=>params[:categoria]});
 	if producto.save
 		redirect "/listado/productos"
 	else
